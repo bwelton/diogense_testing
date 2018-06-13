@@ -12,9 +12,9 @@ __global__  void AddOneKernel(uint64_t * a) {
 
 int main() {
   uint64_t *x, *d_x, *d_y;
-  if (CUDA_SUCCESS != cudaMallocHost(&x, ALLOC_SIZE*sizeof(uint64_t)))
-    fprintf(stderr, "Could not alloc memory\n");
-  //x = (uint64_t*)malloc(ALLOC_SIZE*sizeof(uint64_t));
+  //if (CUDA_SUCCESS != cudaMallocHost(&x, ALLOC_SIZE*sizeof(uint64_t)))
+  //  fprintf(stderr, "Could not alloc memory\n");
+  x = (uint64_t*)malloc(ALLOC_SIZE*sizeof(uint64_t));
   if (CUDA_SUCCESS != cudaMalloc(&d_x, ALLOC_SIZE*sizeof(uint64_t)))
     fprintf(stderr, "ERROR\n");
   for (int i = 0; i < ALLOC_SIZE; i++) {
